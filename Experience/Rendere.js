@@ -15,6 +15,11 @@ export default class Rendere{
             canvas: this.canvas,
             antialias: true, 
         })
-        this.renderer.setSize(this.sizes.witdh,this.sizes.heigth);
+        this.renderer.setSize(this.sizes.width,this.sizes.height);
+    }
+
+    resize(){
+       this.renderer.setSize(this.sizes.width,this.sizes.height);
+        console.log("render actualizado");
     }
 }

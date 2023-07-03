@@ -25,4 +25,8 @@ export default class Rooms{
         this.cube.rotation.y += 0.01;
         this.renderer.renderer.render(this.scene,this.camera.camera)
     }
+
+    resize(){
+        this.renderer.renderer.render(this.scene,this.camera.camera)
+    }
 }

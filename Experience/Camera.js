@@ -15,4 +15,9 @@ export default class Camera{
         this.camera.position.z = 5;
         this.scene.add(this.camera)
     }
+
+    resize(){
+        this.camera.aspect = this.experience.sizes.aspect;
+        console.log("camara actualizada");
+    }
 }
