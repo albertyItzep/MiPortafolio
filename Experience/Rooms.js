@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import Experience from "./Experience";
 
 export default class Rooms{
@@ -8,21 +8,28 @@ export default class Rooms{
         this.scene = this.experience.scene;
         this.camera = this.experience.camera;
 
-        this.createBox();
+        this.createLoadRend();
         this.animate();
     }
+    createLoadRend(){
+        this.loader = new GLTFLoader();
+        this.resize()
+        this.loader.load(
+            'Models/RooM.glb',
+            function ( xhr ) {
 
-    createBox(){
-        this.geometry = new THREE.BoxGeometry( 1, 1, 1 );
-        this.material = new THREE.MeshNormalMaterial()
-        this.cube = new THREE.Mesh( this.geometry, this.material );
-
-        this.scene.add( this.cube );
+                console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+        
+            },
+            function ( error ) {
+        
+                console.log( 'An error happened' );
+        
+            }
+        );
     }
     animate(){
         window.requestAnimationFrame( ()=> this.animate() );
-        this.cube.rotation.x += 0.01;
-        this.cube.rotation.y += 0.01;
         this.renderer.renderer.render(this.scene,this.camera.camera)
     }
 

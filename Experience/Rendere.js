@@ -20,6 +20,5 @@ export default class Rendere{
 
     resize(){
        this.renderer.setSize(this.sizes.width,this.sizes.height);
-        console.log("render actualizado");
     }
 }

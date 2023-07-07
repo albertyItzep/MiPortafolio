@@ -18,6 +18,5 @@ export default class Camera{
 
     resize(){
         this.camera.aspect = this.experience.sizes.aspect;
-        console.log("camara actualizada");
     }
 }
